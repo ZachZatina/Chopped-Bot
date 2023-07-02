@@ -27,10 +27,6 @@ async def hello(ctx):
     await ctx.send("hey!")
 
 @bot.command()
-async def address(ctx):
-    await ctx.send("Brett Kavanaugh - 3706 Underwood Street Chevy Chase, MD 20815; Clarence Thomas 6665 Rutledge Drive Fairfax Station, VA 22039; John Roberts 6805 Meadow Lane Chevy Chase, MD 20815; Samuel Alito 1120 Greenway Road Alexandria, VA 22308; Amy Coney Barrett 2035 Stephanie Marie Drive Falls Church, VA 22043; Neil Gorsuch 11521 Dalyn Terrace Potomac, MD 20854")
-
-@bot.command()
 async def randombasket(ctx):
     choppedIngredients = ListCreator()
     await ctx.send(choppedIngredients)
