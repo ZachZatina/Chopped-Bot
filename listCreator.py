@@ -10,14 +10,30 @@ import foodList
 #'meat' or 'seafood' are selected switch to to the other value and have the corresponding value in the conditional so an extra one isnt added to the list for when it checks
 #for matching values.
 
-fullTuple = (foodList.foodTuple + foodList.meatTuple)
-
 def ListCreator():
     ingredientList = []
-
-    while(ingredientList.count < 3):
-      randomchoice = random.choice(fullTuple)
-      if(randomchoice  not in ingredientList):
-        ingredientList.append(randomchoice)
     
+    meatcount = 0
+    liquidcount = 0
+
+    while(len(ingredientList) < 3):
+      randomnum = random.randrange(1, 101)
+
+      if ( randomnum <= 65 ):
+         randomchoice = random.choice(foodList.foodTuple)
+         if (randomchoice  not in ingredientList):
+          ingredientList.append(randomchoice)
+      elif ( randomnum > 65 and randomnum <= 92 and meatcount == 0):
+         meatcount = meatcount + 1
+         randomchoice = random.choice(foodList.meatTuple + foodList.seafoodTuple)
+         if (randomchoice  not in ingredientList):
+          ingredientList.append(randomchoice)
+      elif ( randomnum > 92 and liquidcount == 0):
+         liquidcount = liquidcount + 1
+         randomchoice = random.choice(foodList.liquidTuple)
+         if (randomchoice  not in ingredientList):
+          ingredientList.append(randomchoice)
+      else:
+        continue
+
     return ingredientList
